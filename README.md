@@ -44,7 +44,7 @@ It features:
 This project combines the power of modern data science tools and web technologies:
 
 - **📊 Streamlit** – For building fast and beautiful interactive dashboards
-- **📈 Plotly Express** – For dynamic and customizable data visualizations
+- **📈 Matplotlib Plotly Express** – For dynamic and customizable data visualizations
 - **🐍 Python 3.11+** – Core language for data manipulation and backend logic
 - **🧮 Pandas** – For handling and filtering the sales dataset
 - **📦 Pyngrok** – To expose the local app securely over the internet
