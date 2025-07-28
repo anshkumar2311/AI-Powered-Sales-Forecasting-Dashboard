@@ -3,7 +3,9 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from datetime import datetime
+from prophet import Prophet
 
 # Set page configuration
 st.set_page_config(page_title="AI Sales Forecasting", layout="wide")
@@ -40,6 +42,7 @@ regions = st.sidebar.multiselect("Select Region", options=df["Region"].unique(),
 
 weekend_only = st.sidebar.checkbox("✅ Only Weekends")
 holiday_only = st.sidebar.checkbox("✅ Only Holidays")
+show_forecast = st.sidebar.checkbox("🔮 Show Sales Forecast (Next 30 Days)")
 
 # Apply filters
 filtered_df = df[
@@ -62,6 +65,45 @@ k1.metric("💰 Total Sales", f"₹{filtered_df['Sales'].sum():,.0f}")
 k2.metric("📈 Total Profit", f"₹{filtered_df['Profit'].sum():,.0f}")
 k3.metric("🧾 Total Orders", filtered_df["Order ID"].nunique())
 k4.metric("🔖 Avg Discount", f"{filtered_df['Discount'].mean():.2%}")
+
+# --- Charts ---
+st.markdown("---")
+st.subheader("📊 Sales Trend Over Time")
+sales_over_time = filtered_df.groupby("Order Date")["Sales"].sum().reset_index()
+fig_sales = px.line(sales_over_time, x="Order Date", y="Sales", title="Daily Sales Trend", markers=True)
+st.plotly_chart(fig_sales, use_container_width=True)
+
+# --- Forecast Section ---
+if show_forecast:
+    st.markdown("---")
+    st.subheader("🔮 AI Sales Forecast (Next 30 Days)")
+
+    sales_df = filtered_df[["Order Date", "Sales"]].rename(columns={"Order Date": "ds", "Sales": "y"})
+    sales_df = sales_df.groupby("ds").sum().reset_index()
+
+    if len(sales_df) < 2:
+        st.warning("Not enough data after applying filters for forecasting.")
+    else:
+        # Train model
+        model = Prophet()
+        model.fit(sales_df)
+
+        # Create future dates
+        future = model.make_future_dataframe(periods=30)
+        forecast = model.predict(future)
+
+        # Plot forecast
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=sales_df["ds"], y=sales_df["y"], name="Actual Sales", line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=forecast["ds"], y=forecast["yhat"], name="Forecast Sales", line=dict(color='green')))
+        fig.add_trace(go.Scatter(x=forecast["ds"], y=forecast["yhat_upper"], name="Upper Bound", line=dict(dash='dot', color='lightgreen')))
+        fig.add_trace(go.Scatter(x=forecast["ds"], y=forecast["yhat_lower"], name="Lower Bound", line=dict(dash='dot', color='lightgreen')))
+
+        fig.update_layout(title="📉 30-Day Sales Forecast using Prophet", xaxis_title="Date", yaxis_title="Sales")
+        st.plotly_chart(fig, use_container_width=True)
+
+        st.download_button("📥 Download Forecast CSV", forecast.to_csv(index=False), "forecast_30_days.csv", "text/csv")
+
 
 # --- Monthly Sales Trend ---
 st.markdown("---")
