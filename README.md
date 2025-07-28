@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   
-![Landing Page Screenshot](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250727_222412.png)
+![Landing Page Screenshot](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250728_163609.png)
 </p>
 
 <p align="center">
@@ -34,6 +34,7 @@ It features:
 📅 **Weekend & Holiday Checkboxes**  
 📈 **Key Performance Indicators**: Sales, Profit, Orders, Discounts  
 📊 **Interactive Graphs Powered by Plotly**  
+🔮 **Sales Forecasting using Prophet**  
 📥 **Download Filtered Data as CSV**  
 💡 **Responsive and Clean UI using Streamlit Layouts**
 
@@ -52,6 +53,16 @@ This project combines the power of modern data science tools and web technologie
 
 > ⚙️ Deployed on **Streamlit Cloud**.
 
+---
+
+## 🔮 Forecasting Model (Prophet)
+
+We use [Facebook Prophet](https://facebook.github.io/prophet/) for time series forecasting:
+- Trained on historical `Sales` data
+- Forecasts future sales
+- Visualized directly in the dashboard
+  
+![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250728_163658.png)
 ---
 
 ## 📌 Visuals
