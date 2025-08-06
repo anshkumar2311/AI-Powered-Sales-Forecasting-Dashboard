@@ -5,12 +5,12 @@
 </p>
 <p align="center">
   
-![Landing Page Screenshot](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250728_163609.png)
+![Landing Page Screenshot](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/Screenshot_20250728_163609.png)
 </p>
 
 <p align="center">
   <a href="https://aisalesforecasting.streamlit.app/">🌐 Live Demo</a> |
-  <a href="https://github.com/anshkumar2311/FUTURE_ML_01">🔗 GitHub</a> |
+  <a href="https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard">🔗 GitHub</a> |
   <a href="https://www.linkedin.com/in/ansh-kumar-747009311/">👨‍💻 Author</a>
 </p>
 
@@ -62,16 +62,16 @@ We use [Facebook Prophet](https://facebook.github.io/prophet/) for time series f
 - Forecasts future sales
 - Visualized directly in the dashboard
   
-![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250728_163658.png)
+![](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/Screenshot_20250728_163658.png)
 ---
 
 ## 📌 Visuals
-![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/download%20(1).png)
+![](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/download%20(1).png)
  
-![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250727_222450.png)
+![](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/Screenshot_20250727_222450.png)
 
-![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/download%20(2).png)
-![](https://github.com/anshkumar2311/FUTURE_ML_01/blob/main/Assets/Screenshot_20250727_222926.png)
+![](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/download%20(2).png)
+![](https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard/blob/main/Assets/Screenshot_20250727_222926.png)
 
 ---
 
@@ -93,8 +93,8 @@ Ready to launch the AI Sales Forecasting Dashboard on your machine? Follow these
 ### 🔧 Setup
 
 ```bash
-git clone https://github.com/anshkumar2311/FUTURE_ML_01.git
-cd FUTURE_ML_01
+git clone https://github.com/anshkumar2311/AI-Powered-Sales-Forecasting-Dashboard.git
+cd AI-Powered-Sales-Forecasting-Dashboard
 pip install -r requirements.txt
 streamlit run app.py
 ```
